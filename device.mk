@@ -201,6 +201,17 @@ PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bt.hci_transport=smd
 
+# ART
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-filter=speed \
+    dalvik.vm.image-dex2oat-filter=speed
+
+# ART
+PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := \
+    --compiler-filter=speed
+
+$(call add-product-dex-preopt-module-config,services,--compiler-filter=speed)
+
 # Platform specific default properties
 #
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
