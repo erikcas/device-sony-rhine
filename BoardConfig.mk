@@ -28,6 +28,8 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RECOVERY := false
 TARGET_NO_KERNEL := false
 
+TARGET_KERNEL_SOURCE := kernel/sony/msm
+
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
@@ -100,7 +102,3 @@ EXTENDED_FONT_FOOTPRINT := true
 
 # Enable dex-preoptimization to speed up first boot sequence
 WITH_DEXPREOPT := true
-
-BUILD_KERNEL := true
--include vendor/sony/kernel/KernelConfig.mk
-
