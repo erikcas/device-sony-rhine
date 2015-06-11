@@ -106,3 +106,5 @@ EXTENDED_FONT_FOOTPRINT := true
 ifeq ($(HOST_OS),linux)
     WITH_DEXPREOPT ?= true
 endif
+
+BUILD_KERNEL := true
