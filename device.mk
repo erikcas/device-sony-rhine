@@ -113,6 +113,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
+PRODUCT_PACKAGES += \
+    libstlport
+
 #OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
@@ -189,10 +192,6 @@ PRODUCT_PACKAGES += \
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     e2fsck
-
-# Platform specific tags
-#
-PRODUCT_TAGS += dalvik.gc.type-precise
 
 # APN list
 PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
