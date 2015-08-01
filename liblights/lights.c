@@ -214,13 +214,9 @@ static int read_int(const char *path)
 static void write_led_scaled(enum led_ident id, int brightness,
 		const char *pwm, unsigned int duration)
 {
-	int max_brightness = read_int(led_descs[id].max_brightness_s);
-	int scaled;
-
-	if (brightness > max_brightness)
-		scaled = max_brightness;
-	else
-		scaled = brightness;
+	float max_brightness = read_int(led_descs[id].max_brightness_s);
+	float brightness_c = ((float)brightness)/255.;
+	float scaled = max_brightness * brightness_c;
 
 	if (pwm && led_descs[id].pwm)
 		write_string(led_descs[id].pwm, pwm);
@@ -230,7 +226,7 @@ static void write_led_scaled(enum led_ident id, int brightness,
 			write_int(led_descs[id].step, duration);
 	}
 
-	write_int(led_descs[id].brightness, scaled);
+	write_int(led_descs[id].brightness, ((int)scaled));
 }
 
 static int is_lit(struct light_state_t const* state)
