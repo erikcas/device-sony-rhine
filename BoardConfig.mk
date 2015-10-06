@@ -53,7 +53,13 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 TARGET_RECOVERY_FSTAB = device/sony/rhine-common/rootdir/fstab.rhine
 
+#GFX
 USE_OPENGL_RENDERER := true
+TARGET_USES_ION := true
+TARGET_USES_OVERLAY := true
+TARGET_USES_SF_BYPASS := true
+TARGET_USES_C2D_COMPOSITION := true
+
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
@@ -63,8 +69,9 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
-TARGET_USES_ION := true
+#Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
+BOARD_QTI_CAMERA_32BIT_ONLY := true
 
 # Wi-Fi definitions for Qualcomm solution
 BOARD_HAS_QCOM_WLAN := true
@@ -87,6 +94,7 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 
 # GPS definitions for Qualcomm solution
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 TARGET_NO_RPC := true
 
 # Charger
@@ -104,26 +112,3 @@ endif
 
 BUILD_KERNEL := true
 -include vendor/sony/kernel/KernelConfig.mk
-
-# SELinux
-include device/qcom/sepolicy/sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += \
-    device/sony/rhine-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    addrsetup.te \
-    device.te \
-    file.te \
-    property.te \
-    sct.te \
-    sensors.te \
-    service.te \
-    system_app.te \
-    tad.te \
-    ta_qmi.te \
-    thermanager.te \
-    timekeep.te \
-    file_contexts \
-    property_contexts \
-    service_contexts
