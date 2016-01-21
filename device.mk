@@ -155,8 +155,8 @@ PRODUCT_PACKAGES += \
     camera.msm8974
 
 # Keymaster
-PRODUCT_PACKAGES += \
-    keystore.msm8974
+#PRODUCT_PACKAGES += \
+#    keystore.msm8974
 
 # OSS
 PRODUCT_PACKAGES += \
