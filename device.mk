@@ -89,7 +89,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.rhine
+    lights.$(TARGET_DEVICE)
 
 # Simple PowerHAL
 PRODUCT_PACKAGES += \
